@@ -1,4 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../lrndesign-animationctrl/lrndesign-animationctrl.html">
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
 
 <!--
@@ -20,23 +22,12 @@
         font-size: 2em;
         text-align: center;
       }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      .buttons {
-        padding: 1em;
-        background-color: var(--maltose-element-bg-color);
-        text-align: center;
-      }
     </style>
-    <div class="buttons">
-        <paper-button raised id="play-button">Play</paper-button>
-        <paper-button raised id="replay-button">Replay</paper-button>
-      </a>
-    </div>
+    <lrndesign-animationctrl>
+      <lrndesign-animationctrl-button name="play" icon="media"></lrndesign-animationctrl-button>
+      <lrndesign-animationctrl-button name="replay" icon="media"></lrndesign-animationctrl-button>
+    </lrndesign-animationctrl>
     <h1>Condensation Synthesis of Sucrose</h1>
-
     <svg id="hexagons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 469.53 169.5">
     <title>Maltose-Sucrose-2-fixed</title>
     <g id="fructosehexright">
@@ -123,9 +114,8 @@
       is: 'sucrose-element',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'sucrose-element',
+         tl: {
+          type: Object
         },
       },
 
@@ -188,7 +178,21 @@ ready: function() {
           y: "+=10",
           ease: Power2.easeOut
         });
-}
+
+        tl.pause();
+         
+        // listen for button clicks and play and pause the animation
+        this.$$('lrndesign-animationctrl').addEventListener('lrndesign-animationctrl-click', function(e) {
+          var name = e.detail.button;
+          if (name === 'play') {
+            tl.play();
+          }
+          if (name === 'replay') {
+            tl.progress(0);
+            tl.pause();
+          }
+        });
+      }
 
     });
   </script>
