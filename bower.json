@@ -4,7 +4,8 @@
   "dependencies": {
     "polymer": "Polymer/polymer#^1.9.0",
     "lrndesign-animationctrl": "LRNWebComponents/lrndesign-animationctrl#^0.0.2",
-    "lrn-icons": "https://github.com/LRNWebComponents/lrn-icons.git#^1.0.12"
+    "lrn-icons": "https://github.com/LRNWebComponents/lrn-icons.git#^1.0.12",
+    "greensock-cdn": "https://github.com/bterp-web/greensock.git"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
