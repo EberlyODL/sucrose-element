@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../lrndesign-animationctrl/lrndesign-animationctrl.html">
 <link rel="import" href="../greensock-cdn/greensock-cdn.html">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 <!--
 `sucrose-element`
@@ -17,16 +18,23 @@
         display: block;
         border: 5px solid var(--maltose-element-bg-color);
       }
-      h1 {
-        font-size: 2em;
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #6D6E71;
         text-align: center;
+      }
+
+      p { 
+        font-family: 'Open Sans', sans-serif;
       }
     </style>
     <lrndesign-animationctrl>
       <lrndesign-animationctrl-button name="play" icon="play"></lrndesign-animationctrl-button>
       <lrndesign-animationctrl-button name="replay" icon="replay"></lrndesign-animationctrl-button>
     </lrndesign-animationctrl>
-    <h1>Condensation Synthesis of Sucrose</h1>
+    <h1>Sucrose</h1>
     <svg id="hexagons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 469.53 169.5">
     <title>Maltose-Sucrose-2-fixed</title>
     <g id="fructosehexright">
@@ -161,22 +169,21 @@ ready: function() {
           alpha: 1
         })
         tl.to([glucoseleft,fructoseright], .3, {
-           x:"-=100",
           alpha: 0
-        })
+        }, 3)
         tl.to([glucosehexleft], .5, {
           x: "-=30",
           ease: Power2.easeOut,
-        })
+        }, 3)
         tl.to([fructosehexright], .5, {
           x: "-=90",
           ease: Power2.easeOut,
-        })
+        }, 3)
         tl.to([oright], .5, {
           x: "-=95",
           y: "+=10",
           ease: Power2.easeOut
-        });
+        }, 3);
 
         tl.pause();
          
